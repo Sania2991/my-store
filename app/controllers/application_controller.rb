@@ -14,4 +14,11 @@ class ApplicationController < ActionController::Base
       render file: "public/404.html", status: 404
     end
 
+     def check_if_admin
+      render_403 unless params[:admin]
+      # render text: "Access denied", status: 403 unless current_user.admin == true
+      # так бы прописали в настоящем приложеннии, а пока только так:
+    end
+
+
 end

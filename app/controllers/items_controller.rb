@@ -104,11 +104,6 @@ class ItemsController < ApplicationController
       render_404 unless @item
     end
 
-    def check_if_admin
-      render_403 unless params[:admin]
-      # render text: "Access denied", status: 403 unless current_user.admin == true
-      # так бы прописали в настоящем приложеннии, а пока только так:
-    end
 
     def items_params
      #params.require(:item).permit(:name, :price, :description, :real, :weight)
@@ -117,20 +112,3 @@ class ItemsController < ApplicationController
     end
 
 end
-
-
-
-
-#  def create    
-#    @item = Item.create(items_params)
-#    p params
-#    render text: "#{@item.id}: #{@item.name}: #{@item.price}: (#{!@item.new_record?})"
-#    #              id_товара  | имя_товара | выводит_true_если_сохранен_в_б.д.   
-#  end
-
-
-#  private
-#  def items_params
-#   params.require(:item).permit(:name, :price, :description, :real, :weight)
-#   #      требует       запрос атрибутов, которые можно редактировать
-#  end
